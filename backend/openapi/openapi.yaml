@@ -1,0 +1,15 @@
+openapi: 3.0.3
+
+info:
+  title: Document Management API
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3000/api
+
+paths:
+  /documents/upload-url:
+    $ref: "./paths/index.yaml"
+
+  /documents:
+    $ref: "./paths/index.yaml"
