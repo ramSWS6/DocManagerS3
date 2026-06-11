@@ -1,0 +1,11 @@
+type: object
+required:
+  - fileName
+  - contentType
+properties:
+  fileName:
+    type: string
+    example: resume.pdf
+  contentType:
+    type: string
+    example: application/pdf

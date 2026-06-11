@@ -1,0 +1,6 @@
+UploadSignatureRequest:
+  $ref: "./documents/UploadSignatureRequest.yaml"
+UploadSignatureResponse:
+  $ref: "./documents/UploadSignatureResponse.yaml"
+ErrorResponse:
+  $ref: "./documents/ErrorResponse.yaml"

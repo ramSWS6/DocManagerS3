@@ -1,0 +1,11 @@
+type: object
+required:
+  - uploadUrl
+  - key
+properties:
+  uploadUrl:
+    type: string
+    format: uri
+  key:
+    type: string
+    example: documents/550e8400-e29b-41d4-a716-446655440000-resume.pdf
