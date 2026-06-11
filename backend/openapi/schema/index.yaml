@@ -4,3 +4,7 @@ UploadSignatureResponse:
   $ref: "./documents/UploadSignatureResponse.yaml"
 ErrorResponse:
   $ref: "./documents/ErrorResponse.yaml"
+CreateDocumentRequest:
+  $ref: "./documents/CreateDocumentRequest.yaml"
+CreateDocumentResponse:
+  $ref: "./documents/CreateDocumentResponse.yaml"
