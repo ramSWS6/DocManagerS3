@@ -9,14 +9,12 @@ requestBody:
 responses:
   "200":
     description: Upload signature generated successfully
-
     content:
       application/json:
         schema:
           $ref: "../../components/schemas/UploadSignatureResponse"
   "400":
     description: Invalid request
-
     content:
       application/json:
         schema:
