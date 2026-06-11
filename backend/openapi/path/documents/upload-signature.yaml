@@ -1,0 +1,23 @@
+operationId: generateUploadSignature
+summary: Generate upload signature
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        $ref: "../../components/schemas/UploadSignatureRequest"
+responses:
+  "200":
+    description: Upload signature generated successfully
+
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/schemas/UploadSignatureResponse"
+  "400":
+    description: Invalid request
+
+    content:
+      application/json:
+        schema:
+          $ref: "../../components/schemas/ErrorResponse"

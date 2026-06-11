@@ -1,0 +1,3 @@
+/documents/upload-signature:
+  post:
+    $ref: "./documents/upload-signature.yaml"
