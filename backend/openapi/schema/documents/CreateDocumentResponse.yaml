@@ -1,0 +1,15 @@
+type: object
+required:
+  - id
+  - name
+  - key
+properties:
+  id:
+    type: string
+    example: doc_123
+  name:
+    type: string
+    example: Resume
+  key:
+    type: string
+    example: documents/550e8400-e29b-41d4-a716-446655440000-resume.pdf

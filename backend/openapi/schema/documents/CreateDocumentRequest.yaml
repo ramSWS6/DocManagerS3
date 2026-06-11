@@ -1,0 +1,15 @@
+type: object
+required:
+  - name
+  - mimeType
+  - size
+  - key
+properties:
+  name:
+    type: string
+  mimeType:
+    type: string
+  size:
+    type: integer
+  key:
+    type: string
