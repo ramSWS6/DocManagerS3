@@ -5,8 +5,9 @@ info:
   description: API for document upload and management
 servers:
   - url: http://localhost:3000/api
+security: []
 paths:
   $ref: "./paths/index.yaml"
 components:
   schemas:
-    $ref: "./schemas/index.yaml"
+    $ref: "./schema/index.yaml"

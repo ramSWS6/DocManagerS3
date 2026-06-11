@@ -5,17 +5,17 @@ requestBody:
   content:
     application/json:
       schema:
-        $ref: "../../components/schemas/UploadSignatureRequest"
+        $ref: "../../schema/documents/UploadSignatureRequest.yaml"
 responses:
   "200":
     description: Upload signature generated successfully
     content:
       application/json:
         schema:
-          $ref: "../../components/schemas/UploadSignatureResponse"
+          $ref: "../../schema/documents/UploadSignatureResponse.yaml"
   "400":
     description: Invalid request
     content:
       application/json:
         schema:
-          $ref: "../../components/schemas/ErrorResponse"
+          $ref: "../../schema/documents/ErrorResponse.yaml"
