@@ -1,8 +1,11 @@
 import { randomUUID } from "crypto";
 import { PutObjectCommand } from "@aws-sdk/client-s3";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
-import { s3Client } from "../../config/s3.js";
-import { UploadSignatureRequestDto, UploadSignatureResponseDto } from "./document.dto.js";
+import { s3Client } from "../../config/s3";
+import { UploadSignatureRequestDto, UploadSignatureResponseDto } from "./document.dto";
+import {CreateDocumentRequestDto, CreateDocumentResponseDto } from  "./document.dto";
+import { DocumentRepository } from "./document.repository.js";
+import { DocumentTransformer } from "./document.transformer.js";
 export class DocumentService {
   async generateUploadSignature(
     payload: UploadSignatureRequestDto,
@@ -25,6 +28,29 @@ export class DocumentService {
       };
     } catch (error) {
       throw new Error("Failed to generate upload signature");
+    }
+  }
+
+  constructor(
+    private readonly documentRepository: DocumentRepository
+  ) {}
+  async createDocument(
+    payload: CreateDocumentRequestDto,
+  ): Promise<CreateDocumentResponseDto> {
+    try {
+      const document =
+        await this.documentRepository.create({
+          name: payload.name,
+          mimeType: payload.mimeType,
+          size: payload.size,
+          key: payload.key,
+        });
+
+      return DocumentTransformer.toCreateDocumentResponse(
+        document,
+      );
+    } catch (error) {
+      throw new Error("Failed to create document");
     }
   }
 }
