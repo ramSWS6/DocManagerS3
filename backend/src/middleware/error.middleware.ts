@@ -1,7 +1,10 @@
 import { Request, Response, NextFunction } from "express";
+import { ErrorResponseDto } from "../modules/documents/document.dto.js";
 export function errorMiddleware( error: Error, req: Request, res: Response, next: NextFunction ): void 
 {
-  res.status(500).json({
-    message: error.message || "Internal Server Error",
-  });
+  const response: ErrorResponseDto = {
+    message: error.message,
+  };
+
+  res.status(500).json(response);
 }
