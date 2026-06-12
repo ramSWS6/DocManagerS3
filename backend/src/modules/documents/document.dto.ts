@@ -1,3 +1,3 @@
 import type {components} from "../../generated/api-types.ts";
 export type UploadSignatureRequestDto = components["schemas"]["UploadSignatureRequest"];
-export type UploadSignatureResponseDto = components["schemas"]["CreateDocumentResponse"];
+export type UploadSignatureResponseDto = components["schemas"]["UploadSignatureResponse"];
