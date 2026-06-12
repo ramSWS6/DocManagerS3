@@ -1,20 +1,22 @@
-import express from "express"
-import cors from "cors"
-import dotenv from "dotenv"
-
-dotenv.config()
-
-const app = express()
-
-app.use(cors())
-app.use(express.json())
-
-app.get("/", (_req, res) => {
-  res.send("Backend Running")
-})
-
-const PORT = process.env.PORT || 3000
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
-})
+import "dotenv/config";
+import express from "express";
+import swaggerUi from "swagger-ui-express";
+import YAML from "yamljs";
+import documentRouter from "./modules/documents/document.router";
+import { errorMiddleware } from "./middleware/error.middleware";
+const app = express();
+const swaggerDocument = YAML.load(
+  "./openapi/dist/openapi.bundle.yaml"
+);
+app.use(express.json());
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerDocument),
+);
+app.use("/api",documentRouter);
+app.use(documentRouter);
+app.use(errorMiddleware);
+app.listen(3000, () => {
+  console.log("Server started on port 3000");
+});
